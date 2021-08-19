@@ -47,6 +47,22 @@ train_dataframe = dataframe.drop(val_dataframe.index)
 
 ```
 
+# pandas dataframe to dataset
+```python
+def dataframe_to_dataset(dataframe):
+    dataframe = dataframe.copy()
+    labels = dataframe.pop("target")
+    ds = tf.data.Dataset.from_tensor_slices((dict(dataframe), labels))
+    ds = ds.shuffle(buffer_size=len(dataframe))
+    return ds
+
+
+train_ds = dataframe_to_dataset(train_dataframe)
+val_ds = dataframe_to_dataset(val_dataframe)
+````
+
+
+
 # Dataset
 
 ## CsvDataset
