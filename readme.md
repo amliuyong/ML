@@ -37,6 +37,16 @@ np.set_printoptions(precision=3, suppress=True)
 
 ```
 
+# split the data into a training and validation set:
+
+```python
+
+val_dataframe = dataframe.sample(frac=0.2, random_state=1337)
+train_dataframe = dataframe.drop(val_dataframe.index)
+
+
+```
+
 # Dataset
 
 ## CsvDataset
