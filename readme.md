@@ -5145,4 +5145,12 @@ print(f"Test MAE: {round(rmse, 3)}")
 
 
 
+# Util
+## shuffle pandas dataframe 
+
+```python
+import numpy as np
+np.random.seed(0)
+df = df.reindex(np.random.permutation(df.index))
+
 ```
